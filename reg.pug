@@ -99,21 +99,21 @@ html(lang="en")
 									h3(class="label") Billing Information
 									div(id="billingForm" class="billing_group")
 										div(class="col-xs-6 col-md-4")
-											input(type="text" name="fname" required="required" placeholder="First Name" class="col-xs-12 billing_input" data-type="string" data-message="This field cannot be empty")
+											input(type="text" name="fname" required="required" placeholder="First Name" class="col-xs-12 billing_input valid" data-type="string" data-message="This field cannot be empty")
 										div(class="col-xs-6 col-md-4")
-											input(type="text" name="lname" required="required" placeholder="Last Name" class="col-xs-12 billing_input" data-type="string" data-message="This field cannot be empty")
+											input(type="text" name="lname" required="required" placeholder="Last Name" class="col-xs-12 billing_input valid" data-type="string" data-message="This field cannot be empty")
 										div(class="col-xs-6 col-md-4")
-											input(type="email" name="email" required="required" placeholder="Email" class="col-xs-12 billing_input" data-type="expression" data-message="Not a valid email address")
+											input(type="email" name="email" required="required" placeholder="Email" class="col-xs-12 billing_input valid")
 										div(class="col-xs-6 col-md-3")
-											input(type="tel" name="phone" required="required" placeholder="Phone" class="col-xs-12 billing_input" data-type="string" data-message="This field cannot be empty")
+											input(type="tel" pattern="^(?:\\\(\\\d{3}\\\)|\\\d{3})[- ]?\\\d{3}[- ]?\\\d{4}$" name="phone" required="required" placeholder="Phone" class="col-xs-12 billing_input valid" title="Please enter a phone number." data-type="string" data-message="This field cannot be empty")
 										div(class="col-xs-6 col-md-3")
-											input(type="text" name="apt" placeholder="Apartment" class="col-xs-12 billing_input")
+											input(type="text" name="apt" placeholder="Apartment" class="col-xs-12 billing_input" data-type="string" data-message="This field cannot be empty")
 										div(class="col-xs-6 col-md-5")
-											input(type="text" name="street" required="required" placeholder="Street Number" class="col-xs-12 billing_input" data-type="string" data-message="This field cannot be empty")
+											input(type="text" name="street" required="required" placeholder="Street Number" class="col-xs-12 billing_input valid" pattern="^\\\d+\\\s[A-z]+\\\s[A-z]+" data-type="string" data-message="This field cannot be empty")
 										div(class="col-xs-6 col-md-5")
-											input(type="text" name="city" required="required" placeholder="city" class="col-xs-12 billing_input" data-type="string" data-message="This field cannot be empty")
+											input(type="text" name="city" required="required" placeholder="city" class="col-xs-12 billing_input valid" data-type="string" data-message="This field cannot be empty")
 										div(class="col-xs-4 col-md-2 right")
-											select(id="state" class="col-xs-12 billing_input" required="required" data-type="string" data-message="This field cannot be empty")
+											select(id="state" class="col-xs-12 billing_input valid" required="required" data-type="string" data-message="This field cannot be empty")
 												option(value="") ST
 												option(value="AL") AL
 												option(value="AK") AK
@@ -167,7 +167,7 @@ html(lang="en")
 												option(value="WI") WI
 												option(value="WY") WY
 										div(class="col-xs-6 col-md-3 last")
-											input(type="text" name="zipcode" required="required" placeholder="zip-code" class="col-xs-12 billing_input" data-type="string" data-message="This field cannot be empty")
+											input(type="text" name="zipcode" required="required" placeholder="zip-code" class="col-xs-12 billing_input valid" pattern="^\\\d{5}(?:[-\\\s]\\\\d{4})?$" data-type="string" data-message="This field cannot be empty")
 										span(class="float")
 								div(id="adultParameters")
 									h3(class="label") Adults +13
@@ -175,8 +175,8 @@ html(lang="en")
 										i(class="ad fa fa-minus")
 										div
 											label(for="qty-1") Quantity
-											input(type="text" name="qty-1" id="qty-1" class="qty" value="0")
-									div(id="adforms" data-name="Adult Workshop" data-price="30" class="product")
+											input(type="text" name="qty-1" id="qty-1" class="qty" value="0" disabled)
+									div(id="adforms"  class="product")
 										h3(class="label")
 								div(id="childParameters")
 									h3(class="label") Children #[span 12 &amp; under]
@@ -184,10 +184,10 @@ html(lang="en")
 										i(class='ch fa fa-minus')
 										div
 											label(for="qty-1") Quantity
-											input(type="text" name="qty-1" id="qty-2" class="qty" value="0" data-product="Childrens Workshop")
+											input(type="text" name="qty-1" id="qty-2" class="qty" value="0" disabled)
 									div(id="gaurdian")
 										h3(class="label gaurdian")
-									div(id="chforms" data-name="Child Workshop" data-price="18" class="product")
+									div(id="chforms"  class="product")
 										h3(class="label Children-label")
 								button(id="order-button" class="btn btn-primary btn-lg btn-block" type="submit" value="" form="reg_info") SUBMIT
 		div(class="footer")
@@ -206,4 +206,4 @@ html(lang="en")
 	script(type="text/javascript" src="js/reg.js")
 	script(type="text/javascript" src="js/cart.js")
 	//- /*script(type="text/javascript" src="js/order.js")*/
-	//- /*script(type="text/javascript" src="js/validate.js")*/
+	script(type="text/javascript" src="js/validate.js")

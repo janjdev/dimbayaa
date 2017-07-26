@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function(){
     var parentCheck;
     var h = document.getElementById('chforms').firstElementChild;
     var hh = document.getElementById('adforms').firstElementChild;
-    var basic_form = "<div class='col-xs-4 col-md-4'><input name='fname' type='text' placeholder='First Name' class='col-xs-12 inputs name'/></div> " +  "<div class='col-xs-4 col-md-4'>  <input name='lname' type='text' placeholder='Last Name' class='col-xs-12 inputs name'/></div> " + "<div class='col-xs-4 col-md-4'><input name='email' type='email' placeholder='email' class='col-xs-12 inputs'/></div>";
+    var basic_form = "<div class='col-xs-4 col-md-4'><input name='fname' type='text' placeholder='First Name' class='col-xs-12 inputs name' data-type='string' data-message='This field cannot be empty'/></div> " +  "<div class='col-xs-4 col-md-4'>  <input name='lname' type='text' placeholder='Last Name' class='col-xs-12 inputs name' data-type='string' data-message='This field cannot be empty'/></div> " + "<div class='col-xs-4 col-md-4'><input name='email' type='email' placeholder='email' class='col-xs-12 inputs' data-type='expression' data-message='This field cannot be empty'/></div>";
     var ch_form = "<div class='col-xs-4 col-md-4'><input name='fname' type='text' placeholder='First Name' class='col-xs-12 inputs name'/></div> " +  "<div class='col-xs-4 col-md-4'>  <input name='lname' type='text' placeholder='Last Name' class='col-xs-12 inputs name'/></div> " + "<div class='col-xs-4 col-md-4'><input name='age' type='text' placeholder='age' class='col-xs-12 inputs'/>";
 
 

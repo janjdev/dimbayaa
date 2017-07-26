@@ -75,3 +75,130 @@ paypal.Button.render({
         }
 
     }, '#paypal-button');
+
+
+
+
+		Array.prototype.forEach.call(chFields, function(field) {
+
+				field.addEventListener('click', function(){
+					if(field.dataset.type == "string"){
+						if(field.value != null && /\S/.test(field.value)){
+							field.style.borderColor = "rgb(169, 169, 169)";
+							//reg_btn.disabled = false;
+							if(field.previousSibling.className =="message"){
+							field.previousSibling.remove();
+						}
+					}
+					else{
+							field.style.borderColor = "red";
+							isValid = false;
+						}
+					}else if(field.dataset.type == "expression"){
+						if((re.test(field.value))){
+							this.style.borderColor = "rgb(169, 169, 169)";
+							//reg_btn.disabled = false;
+							if(field.previousSibling.className =="message"){
+							field.previousSibling.remove();
+						}
+					}else{
+						isValid = false;
+					}
+				}
+			});
+		});
+
+
+
+		Array.prototype.forEach.call(fields, function(field) {
+					if(field.dataset.type == "string"){
+						if(field.value != null && /\S/.test(field.value)){
+							field.style.borderColor = "rgb(169, 169, 169)";
+							//reg_btn.disabled = false;
+							if(field.previousSibling.className =="message"){
+							field.previousSibling.remove();
+						}
+
+					}else{
+							field.style.borderColor = "red";
+							isValid = false;
+						}
+					}else if(field.dataset.type == "expression"){
+						if((re.test(field.value))){
+							this.style.borderColor = "rgb(169, 169, 169)";
+							//reg_btn.disabled = false;
+							if(field.previousSibling.className =="message"){
+							field.previousSibling.remove();
+						}
+					}else{
+						field.style.borderColor = "red";
+						isValid = false;
+					}
+				}
+
+	});
+
+
+
+
+	else{
+		isValid = true;
+	 field.style.borderColor = "rgb(169, 169, 169)";
+	}
+
+
+
+	//   field.addEventListener('keyup', function(){
+	//     if(field.dataset.type == "string"){
+	//         console.log(field.value);
+	//       if(field.value != null && /\S/.test(field.value)){
+	//         field.style.borderColor = "rgb(169, 169, 169)";
+	//         //reg_btn.disabled = false;
+	//         if(field.previousSibling.className =="message"){
+	//         field.previousSibling.remove();
+	//       }
+	//     }
+	//     else{
+	//         field.style.borderColor = "red";
+	//       }
+	//     }else if(field.dataset.type == "expression"){
+	//       if((re.test(field.value))){
+	//         field.style.borderColor = "rgb(169, 169, 169)";
+	//         //reg_btn.disabled = false;
+	//         if(field.previousSibling.className =="message"){
+	//         field.previousSibling.remove();
+	//       }
+	//     }else{
+	//       isValid = false;
+	//     }
+	//   }
+	// });
+	//
+	//   field.addEventListener('keyup', function(){
+	//     if(field.dataset.type == "string"){
+	//         console.log(field.value);
+	//       if(field.value != null && /\S/.test(field.value)){
+	//         field.style.borderColor = "rgb(169, 169, 169)";
+	//         //reg_btn.disabled = false;
+	//         if(field.previousSibling.className =="message"){
+	//         field.previousSibling.remove();
+	//       }
+	//
+	//       }
+	//       else{
+	//         field.style.borderColor = "red";
+	//           isValid = false;
+	//       }
+	//     }else if(field.dataset.type == "expression"){
+	//       if((re.test(field.value))){
+	//         field.style.borderColor = "rgb(169, 169, 169)";
+	//         //reg_btn.disabled = false;
+	//         if(field.previousSibling.className =="message"){
+	//         field.previousSibling.remove();
+	//       }
+	//
+	//     }else{
+	//       isValid = false;
+	//     }
+	//   }
+	// });

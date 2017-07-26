@@ -1,131 +1,67 @@
 document.addEventListener("DOMContentLoaded", function(){
     var fields,
     gaurdianFields,
-    adultFields,
-    chFields,
-    isValid,
+    isValid = true,
+    inputs,
      re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  document.querySelector('#order-button').addEventListener('click', function(e) {
 
-       fields = document.querySelectorAll('#reg_info input');
-       gaurdianFields = document.querySelectorAll('#gaurdian input.name');
-       adultFields = document.querySelectorAll('#adforms input.name');
-       chFields = document.querySelectorAll('#chforms input.name');
+     function validatefields(x){
+       Array.prototype.forEach.call(x, function(field) {
+          if(field.value == null || /\S/.test(field.value) == false){
+             field.style.borderColor = "red";
+             isValid = false;
+          }else
+           if(field.dataset.type == "expression"){
+            if (!(re.test(field.value))){
+              field.style.borderColor = "red";
+              isValid = false;
+          }
+        }  else {
+            isValid = true;
+           field.style.borderColor = "rgb(169, 169, 169)";
+          }
+             console.log(isValid);
+           });
+          }
 
+//|| /\S/.test(field.value)
+        document.querySelector('#btn').addEventListener('click', function(){
+          fields = document.querySelectorAll('#reg_info input.valid');
+          gaurdianFields = document.querySelectorAll('#gaurdian input.inputs');
+          inputs = document.querySelectorAll('input');
+        });
 
-      //Form validation
-        //input fields are not blank on Keyup
-            Array.prototype.forEach.call(fields, function(field) {
-              field.addEventListener('keyup', function(){
-                if(field.dataset.type == "string"){
-                    console.log(field.value);
-                  if(field.value != null && /\S/.test(field.value)){
-                    field.style.borderColor = "rgb(169, 169, 169)";
-                    //reg_btn.disabled = false;
-                    if(field.previousSibling.className =="message"){
-                    field.previousSibling.remove();
-                  }
-
-                  }
-                  else{
-                    field.style.borderColor = "red";
-                      isValid = false;
-                  }
-                }else if(field.dataset.type == "expression"){
-                  if((re.test(field.value))){
-                    this.style.borderColor = "rgb(169, 169, 169)";
-                    //reg_btn.disabled = false;
-                    if(field.previousSibling.className =="message"){
-                    field.previousSibling.remove();
-                  }
-
-                }else{
-                  isValid = false;
-                }
+        //Validate of input keyup
+        function keyValidate(){
+          Array.prototype.forEach.call(inputs, function(input) {
+            input.addEventListener('keyup', function(){
+              validatefields(fields);
+              if(document.getElementById('chforms').firstElementChild.nextElementSibling){
+              validatefields(gaurdianFields);
               }
-            });
-                field.addEventListener('click', function(){
-                  if(field.dataset.type == "string"){
-                    if(field.value != null && /\S/.test(field.value)){
-                      field.style.borderColor = "rgb(169, 169, 169)";
-                      //reg_btn.disabled = false;
-                      if(field.previousSibling.className =="message"){
-                      field.previousSibling.remove();
-                    }
-
-                  }else{
-                      field.style.borderColor = "red";
-                      isValid = false;
-                    }
-                  }else if(field.dataset.type == "expression"){
-                    if((re.test(field.value))){
-                      this.style.borderColor = "rgb(169, 169, 169)";
-                      //reg_btn.disabled = false;
-                      if(field.previousSibling.className =="message"){
-                      field.previousSibling.remove();
-                    }
-                  }else{
-                    isValid = false;
-                  }
-                }
             });
           });
+        }
+        //Validate on Click
+        document.querySelector('#order-button').addEventListener('click', function(e) {
+          //Form validation
+              //input fields are not blank on Keyup
+                validatefields(fields);
+                keyValidate();
+            if(document.getElementById('chforms').firstElementChild.nextElementSibling){
+              validatefields(gaurdianFields);
+            }
+            if(!isValid){
+              e.preventDefault();
+            }
+        });
 
-      Array.prototype.forEach.call(chFields, function(field) {
-        field.addEventListener('keyup', function(){
-          if(field.dataset.type == "string"){
-              console.log(field.value);
-            if(field.value != null && /\S/.test(field.value)){
-              field.style.borderColor = "rgb(169, 169, 169)";
-              //reg_btn.disabled = false;
-              if(field.previousSibling.className =="message"){
-              field.previousSibling.remove();
-            }
-          }
-          else{
-              field.style.borderColor = "red";
-            }
-          }else if(field.dataset.type == "expression"){
-            if((re.test(field.value))){
-              this.style.borderColor = "rgb(169, 169, 169)";
-              //reg_btn.disabled = false;
-              if(field.previousSibling.className =="message"){
-              field.previousSibling.remove();
-            }
-          }else{
-            isValid = false;
-          }
+        //Validate on form focus
+      document.querySelector('#reg_info').addEventListener('focus', function(){
+        validatefields(fields);
+        if(document.getElementById('chforms').firstElementChild.nextElementSibling){
+        validatefields(gaurdianFields);
         }
       });
-          field.addEventListener('click', function(){
-            if(field.dataset.type == "string"){
-              if(field.value != null && /\S/.test(field.value)){
-                field.style.borderColor = "rgb(169, 169, 169)";
-                //reg_btn.disabled = false;
-                if(field.previousSibling.className =="message"){
-                field.previousSibling.remove();
-              }
-            }
-            else{
-                field.style.borderColor = "red";
-                isValid = false;
-              }
-            }else if(field.dataset.type == "expression"){
-              if((re.test(field.value))){
-                this.style.borderColor = "rgb(169, 169, 169)";
-                //reg_btn.disabled = false;
-                if(field.previousSibling.className =="message"){
-                field.previousSibling.remove();
-              }
-            }else{
-              isValid = false;
-            }
-          }
-        });
-    });
-
-    });
-
-
 
 });
