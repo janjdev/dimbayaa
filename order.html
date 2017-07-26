@@ -22,7 +22,12 @@
     <!--Scripts ---------------------------------------------->
     <script src="https://www.paypalobjects.com/api/checkout.js"></script>
   </head>
-  <body class="order-body">
+  <body class="order-body"><!-- Preloader--------------------------------------->
+    <div id="loader-wrapper">
+      <div id="loader"><img src="img/logo.png"></div>
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+    </div>
     <!--Primary Page Layout ---------------------------------------->
     <div class="container">
       <div class="row">
@@ -132,5 +137,7 @@
     </div>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">             </script>
     <script type="text/javascript" src="js/order.js"></script>
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+    <script type="text/javascript" src="js/gj.js"></script>
   </body>
 </html>

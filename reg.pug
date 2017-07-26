@@ -24,6 +24,12 @@ html(lang="en")
 		//Scripts --------------------------------------------
 		//script(src="https://www.paypalobjects.com/api/checkout.js")
 	body(class="reg-body")
+		<!-- Preloader--------------------------------------->
+		div(id="loader-wrapper")
+			div(id="loader")
+				img(src="img/logo.png")
+			div(class="loader-section section-left")
+			div(class="loader-section section-right")
 		//Primary Page Layout --------------------------------------
 		div(class="container")
 			div(class="row")
@@ -201,9 +207,10 @@ html(lang="en")
 							li: a(href="projects.html") PROJECTS
 							li: a(href="about.html") ABOUT
 							li: a(class="active" href="https://mocha3019.mochahost.com/~brklyn31/dimbayaa.art/reg.html") SummerWorkshop
-								
-	
-	script(type="text/javascript" src="js/reg.js")
-	script(type="text/javascript" src="js/cart.js")
-	//- /*script(type="text/javascript" src="js/order.js")*/
-	script(type="text/javascript" src="js/validate.js")
+							
+		script(type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js") 	
+		script(src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js")
+		script(type="text/javascript" src="js/gj.js")
+		script(type="text/javascript" src="js/reg.js")
+		script(type="text/javascript" src="js/cart.js")
+		script(type="text/javascript" src="js/validate.js")

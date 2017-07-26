@@ -24,6 +24,13 @@ html(lang="en")
     //Scripts --------------------------------------------
     script(src="https://www.paypalobjects.com/api/checkout.js")
   body(class="order-body")
+    <!-- Preloader--------------------------------------->
+    div(id="loader-wrapper")
+      div(id="loader")
+        img(src="img/logo.png")
+      div(class="loader-section section-left")
+      div(class="loader-section section-right")
+
     //Primary Page Layout --------------------------------------
     div(class="container")
       div(class="row")
@@ -103,4 +110,6 @@ html(lang="en")
     
     script(type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")              
     script(type="text/javascript" src="js/order.js")
+    script(src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js")
+    script(type="text/javascript" src="js/gj.js")
       
