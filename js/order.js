@@ -197,8 +197,8 @@ function isValid() {
 
 
 		        client: {
-		            production: 'AeVeqXIYUNe3QdeoTiPcopDp-_KLIq62T2i3HHTqC3qxYzCNAK17vhCKXxrlUxTaS615yG92k-WeHOJS',
-								sandbox:    'AW60FbSd2WO1UC6UjC_ce37v0d0Ydi7OUZtjKp7E0Q4HalOMpm1uoFvHO8lm4SpGZl8E0x2CXTtbmMH8',
+		            production: '',
+								sandbox:    '',
 		        },
 		        commit: true, // Show a 'Pay Now' button
 
